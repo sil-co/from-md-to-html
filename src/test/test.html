@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ドキュメント</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        h3 {
+            color: #555;
+        }
+
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="content"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/showdown/dist/showdown.min.js"></script>
+    <script>
+        const mdText = `
+## 第2章: 開発環境の設定
+この章では、JavaScriptの開発に最適な環境を設定する方法を学びます。
+
+### 2.1 Visual Studio Codeのインストール
+1. **ダウンロードとインストール**:
+   - Visual Studio Code（VSCode）はMicrosoftによって開発された無料のコーディングエディタです。
+   - インストーラを開き、指示に従ってインストールします。
+
+2. **基本設定**:
+   - VSCodeを開いたら、基本的な設定を行いましょう。
+   - 「ファイル」メニューから「基本設定」を選び、「設定」をクリックして、エディタの振る舞いを調整します。
+
+### 2.2 Google Chromeの活用
+        `;
+
+        const converter = new showdown.Converter();
+        const html = converter.makeHtml(mdText);
+        document.getElementById('content').innerHTML = html;
+    </script>
+</body>
+
+</html>
